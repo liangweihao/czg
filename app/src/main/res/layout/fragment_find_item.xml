@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_16dp"
+        android:layout_marginRight="@dimen/dimen_16dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dimen_10dp">
+
+            <LinearLayout
+                android:id="@+id/ll_find_item_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.gcyh.jiedian.widget.CircleImageView
+                    android:id="@+id/iv_find_item_head"
+                    android:layout_width="@dimen/dimen_50dp"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/my_head" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimen_5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_find_item_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="王晓刚"
+                            android:textColor="#202228"
+                            android:textSize="@dimen/dimen_15sp" />
+
+                        <TextView
+                            android:id="@+id/tv_find_item_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@mipmap/time"
+                            android:drawablePadding="@dimen/dimen_5dp"
+                            android:text="2018.04.19"
+                            android:textColor="#788598"
+                            android:textSize="@dimen/dimen_10sp" />
+
+                    </LinearLayout>
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycleView_find_item_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_16dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_find_item_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_find_item_head"
+                android:layout_marginBottom="@dimen/dimen_12dp"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:text="在施工过程中，我们一直以积极的心态参与到工作中，在从事的工作中，认真负责，担起自己的责..."
+                android:textColor="#202228"
+                android:textSize="@dimen/dimen_12sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleView_find_item_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_find_item_content"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_10dp" />
+
+            <LinearLayout
+                android:id="@+id/ll_zan_comment"
+                android:layout_below="@+id/recycleView_find_item_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimen_14dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_find_item_zan"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_52dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_find_item_zan_comment_bg"
+                    android:gravity="center|center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/cb_find_item_zan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/selector_zan" />
+
+                    <TextView
+                        android:id="@+id/iv_find_item_zan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_3dp"
+                        android:text="点赞(1024)"
+                        android:textColor="#202228"
+                        android:textSize="@dimen/dimen_12sp" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/dimen_1dp"
+                    android:layout_height="@dimen/dimen_52dp"
+                    android:background="#33788598" />
+
+                <LinearLayout
+                    android:id="@+id/ll_find_item_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_52dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_find_item_zan_comment_bg"
+                    android:gravity="center|center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/comment" />
+
+                    <TextView
+                        android:id="@+id/tv_find_item_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_3dp"
+                        android:text="评论(1024)"
+                        android:textColor="#202228"
+                        android:textSize="@dimen/dimen_12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+

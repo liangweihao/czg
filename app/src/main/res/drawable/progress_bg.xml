@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 背景  gradient是渐变,corners定义的是圆角 -->
+
+    <item android:id="@android:id/progress">
+        <clip
+            android:clipOrientation="horizontal"
+            android:gravity="left">
+            <shape>
+                <corners android:radius="5dp"/>
+                <gradient
+                    android:startColor="#e5d61c"
+                    android:centerColor="#f3a20b"
+                    android:endColor="#FF0000"/>
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

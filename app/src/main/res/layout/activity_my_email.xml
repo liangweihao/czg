@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.gcyh.jiedian.my.activity.MyEmailActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <EditText
+        android:id="@+id/et_my_e_mail_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:paddingTop="@dimen/dimen_15dp"
+        android:paddingBottom="@dimen/dimen_15dp"
+        android:paddingLeft="@dimen/dimen_15dp"
+        android:textSize="@dimen/dimen_15sp"
+        android:textColor="@color/color_333333"
+        android:hint="请输入邮箱地址"
+        android:background="@color/white"/>
+
+</LinearLayout>

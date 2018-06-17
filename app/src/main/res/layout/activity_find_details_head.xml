@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_find_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginRight="@dimen/dimen_15dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.gcyh.jiedian.widget.CircleImageView
+            android:id="@+id/iv_find_details_head"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/my_head" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_find_details_head_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_5dp"
+                android:text="王晓刚"
+                android:textColor="#202228"
+                android:textSize="@dimen/dimen_17sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleView_find_details_head_type"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_16dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_find_details_head_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018.04.19"
+            android:textColor="#788598"
+            android:drawableLeft="@mipmap/time"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:textSize="@dimen/dimen_10sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_find_details_head_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginRight="@dimen/dimen_15dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:text="在施工过程中，我们一直以积极的心态参与到工作中，在从事的工作中，认真负责，担起自己的责..."
+        android:textColor="#202228"
+        android:textSize="@dimen/dimen_12sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView_find_details_head_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_12dp"
+        android:layout_marginRight="@dimen/dimen_12dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginRight="@dimen/dimen_15dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:background="@color/color_d6d6d6" />
+
+    <LinearLayout
+        android:id="@+id/ll_ofind_details_head_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <CheckBox
+            android:id="@+id/cb_find_details_head_zan_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/selector_big_zan"
+            android:padding="@dimen/dimen_6dp"
+            android:text="24"
+            android:textColor="#939393"
+            android:textSize="@dimen/dimen_15sp" />
+
+        <TextView
+            android:id="@+id/tv_find_details_head_comment_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_30dp"
+            android:drawableLeft="@mipmap/big_comment"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_6dp"
+            android:text="80"
+            android:textColor="#939393"
+            android:textSize="@dimen/dimen_15sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_find_details_head_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:drawableLeft="@mipmap/report"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_6dp"
+            android:text="举报"
+            android:textColor="#939393"
+            android:textSize="@dimen/dimen_11sp" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_string"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_15dp"
+        android:background="@color/color_f9f9f9" />
+
+    <include layout="@layout/find_details_head_stop" />
+
+
+</LinearLayout>

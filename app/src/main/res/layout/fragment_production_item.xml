@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_production_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_8dp"
+        android:layout_marginRight="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        app:cardUseCompatPadding="true"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="2dp"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/iv_production_pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ar_bg"/>
+
+    </android.support.v7.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginRight="@dimen/dimen_15dp">
+
+        <LinearLayout
+            android:id="@+id/ll_production_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_11dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_production_item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="天津高铁站月台设计"
+                android:textColor="#404040"
+                android:textSize="@dimen/dimen_15sp" />
+
+
+            <TextView
+                android:id="@+id/tv_production_item_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_8dp"
+                android:drawableLeft="@mipmap/time"
+                android:drawablePadding="@dimen/dimen_3dp"
+                android:singleLine="true"
+                android:text="2018.04.12"
+                android:textColor="#a4a4a4"
+                android:textSize="@dimen/dimen_12sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_production_item_title_english"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_production_item"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Tianjin rail station platform architecturel"
+            android:textColor="#848383"
+            android:textSize="@dimen/dimen_11sp" />
+
+        <TextView
+            android:id="@+id/tv_production_item_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_production_item_title_english"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="项目简介：该项目共规划两栋高层建筑，基础形式为桩基础,该工程安全等级为II级"
+            android:textColor="#848383"
+            android:textSize="@dimen/dimen_11sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginLeft="@dimen/dimen_8dp"
+        android:layout_marginRight="@dimen/dimen_8dp"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:background="#d6d6d6"/>
+
+</LinearLayout>
