@@ -3,14 +3,14 @@ apply plugin: 'com.android.application'
 android {
 
     /*上线的时候删除*/
-    signingConfigs {
-        debug {
-            keyAlias 'key0'
-            storeFile file('E:/ProjectDemo/EasyAssembleApk/EasyAssemble.jks')
-            keyPassword '123456'
-            storePassword '123456'
-        }
-    }
+//    signingConfigs {
+//        debug {
+//            keyAlias 'key0'
+//            storeFile file('E:/ProjectDemo/EasyAssembleApk/EasyAssemble.jks')
+//            keyPassword '123456'
+//            storePassword '123456'
+//        }
+//    }
 
     compileSdkVersion 26
     buildToolsVersion '26.0.0'

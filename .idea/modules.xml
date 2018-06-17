@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EasyAssemble.iml" filepath="$PROJECT_DIR$/EasyAssemble.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/czg.iml" filepath="$PROJECT_DIR$/czg.iml" />
     </modules>
   </component>
 </project>
