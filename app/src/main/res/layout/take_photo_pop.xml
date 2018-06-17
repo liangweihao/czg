@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/pop_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_person_information_take_photo_from_photo_album"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:textColor="@android:color/black"
+            android:text="拍照/相册"
+            android:gravity="center"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_d6d6d6" />
+
+        <TextView
+            android:id="@+id/tv_person_information_take_photo_from_default"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:text="默认头像"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_d6d6d6"
+            />
+        <TextView
+            android:id="@+id/tv_person_information_take_photo_channel"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:textColor="@android:color/black"
+            android:text="取消"
+            android:gravity="center"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_5dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp" >
+
+        <ImageView
+            android:id="@+id/iv_production_pic2"
+            android:layout_width="@dimen/dimen_100dp"
+            android:layout_height="@dimen/dimen_70dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"/>
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_5dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_production_item_title2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="天津高铁站月台设计"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/dimen_16sp" />
+
+                <ImageView
+                    android:id="@+id/iv_production_item_collect2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_production_item_title_english2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dimen_13sp"
+                android:singleLine="true"
+                android:text="Tianjin rail station platform architecturel"/>
+
+            <TextView
+                android:id="@+id/tv_production_item_content2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dimen_13sp"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:layout_marginBottom="@dimen/dimen_3dp"
+                android:singleLine="true"
+                android:text="项目简介：该项目共规划两栋高层建筑，基础形式为桩基础,该工程安全等级为II级"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_production_item_message2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_production_item_price2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dimen_13sp"
+                android:textColor="@color/color_de171e"
+                android:text="￥5"/>
+
+            <TextView
+                android:id="@+id/tv_production_item_number2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dimen_13sp"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_weight="1"
+                android:text="1024人付款"/>
+
+            <TextView
+                android:id="@+id/tv_production_item_data2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dimen_13sp"
+                android:text="2018.04.20"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_7dp"
+            android:background="@color/color_d6d6d6"/>
+
+    </LinearLayout>
+
+</LinearLayout>

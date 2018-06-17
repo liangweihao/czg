@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">节典</string>
+
+    <string name="text_grant_needed">您需要在设置中打开权限</string>
+    <string name="btn_ok">确定</string>
+    <string name="btn_cancel">取消</string>
+    <string name="btn_save">保存</string>
+    <string name="exit">再按一次退出程序</string>
+    <string name="money_details">“线”为平台虚拟货币单位，一元人民币=10线币，购买资料和使用平台服务均使用线数进行支付。</string>
+    <string name="feed_back_content">亲，我们非常重视您给我们提供的宝贵建议，帮助我们不断完善产品，谢谢！</string>
+    <string name="loading_text">正在加载....</string>
+</resources>

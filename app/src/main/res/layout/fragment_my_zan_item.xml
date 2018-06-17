@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dimen_10dp"
+    android:layout_marginRight="@dimen/dimen_10dp"
+    android:layout_marginTop="@dimen/dimen_10dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dimen_10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.gcyh.jiedian.widget.CircleImageView
+                android:id="@+id/iv_my_zan_item_head"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="@dimen/dimen_50dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_my_zan_item_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="王晓刚"
+                        android:textColor="#202228"
+                        android:textSize="@dimen/dimen_15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_my_zan_item_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@mipmap/time"
+                        android:drawablePadding="@dimen/dimen_5dp"
+                        android:text="2018.04.19"
+                        android:textColor="#788598"
+                        android:textSize="@dimen/dimen_10sp" />
+
+                </LinearLayout>
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycleView_my_zan_item_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_16dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_my_zan_item_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:text="在施工过程中，我们一直以积极的心态参与到工作中，在从事的工作中，认真负责，担起自己的责..."
+            android:textColor="#202228"
+            android:textSize="@dimen/dimen_12sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleView_my_zan_item_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_my_zan_item_zan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#f4f4f4"
+                android:gravity="center|center_vertical"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_my_zan_item_zan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/selector_zan"
+                    android:paddingBottom="@dimen/dimen_20dp"
+                    android:paddingRight="@dimen/dimen_5dp"
+                    android:paddingTop="@dimen/dimen_20dp" />
+
+                <TextView
+                    android:id="@+id/iv_my_zan_item_zan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="点赞(1024)"
+                    android:textColor="#202228"
+                    android:textSize="@dimen/dimen_12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_my_zan_item_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|center_vertical"
+                android:background="#f4f4f4"
+                android:paddingBottom="@dimen/dimen_20dp"
+                android:paddingTop="@dimen/dimen_20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/comment"/>
+
+                <TextView
+                    android:id="@+id/tv_my_zan_item_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5dp"
+                    android:text="评论(1024)"
+                    android:textColor="#202228"
+                    android:textSize="@dimen/dimen_12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

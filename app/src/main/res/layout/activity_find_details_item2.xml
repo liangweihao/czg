@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dimen_20dp">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginLeft="@dimen/dimen_47dp"
+        android:background="@color/color_d6d6d6" />
+
+    <com.gcyh.jiedian.widget.CircleImageView
+        android:id="@+id/iv_find_details_item2_head"
+        android:layout_width="@dimen/dimen_35dp"
+        android:layout_height="@dimen/dimen_35dp"
+        android:layout_below="@+id/view"
+        android:layout_marginLeft="@dimen/dimen_47dp"
+        android:layout_marginTop="@dimen/dimen_7dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/my_head" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_13dp"
+        android:layout_toRightOf="@+id/iv_find_details_item2_head"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_find_details_item2_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="李玉刚"
+                android:textColor="#707070"
+                android:textSize="@dimen/dimen_13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_5dp"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_find_details_item1_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="回复"
+                    android:textColor="#484848"
+                    android:textSize="@dimen/dimen_12sp" />
+
+                <TextView
+                    android:id="@+id/tv_find_details_item2_call_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" @李玉刚:"
+                    android:textColor="#3a6da5"
+                    android:textSize="@dimen/dimen_12sp" />
+
+                <TextView
+                    android:id="@+id/tv_find_details_item2_call_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_3dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="就服你"
+                    android:textColor="#484848"
+                    android:textSize="@dimen/dimen_12sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_find_details_item2_return"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_20dp"
+                    android:paddingBottom="@dimen/dimen_5dp"
+                    android:paddingTop="@dimen/dimen_5dp"
+                    android:text="回复"
+                    android:textColor="#3a6da5"
+                    android:textSize="@dimen/dimen_12sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_find_details_item2_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2018-05-04"
+                android:textColor="#b4b3b3"
+                android:textSize="@dimen/dimen_10sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/dimen_125dp"
+    android:layout_height="@dimen/dimen_150dp"
+    android:background="@color/white"
+    android:layout_marginBottom="@dimen/dimen_2dp"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical|center">
+
+        <ImageView
+            android:id="@+id/iv_beer_shop_item_recycleView_item"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_108dp"
+            android:src="@mipmap/jiedian_item" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:layout_marginLeft="@dimen/dimen_8dp"
+            android:layout_marginRight="@dimen/dimen_8dp"
+            android:background="#33788598" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_13dp"
+            android:layout_marginBottom="@dimen/dimen_13dp"
+            android:textSize="@dimen/dimen_11sp"
+            android:textColor="#676666"
+            android:text="石膏板吊顶"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

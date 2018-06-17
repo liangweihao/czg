@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.gcyh.jiedian.my.activity.MyChargeActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_10dp"
+                android:background="@color/color_f9f9f9" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:paddingRight="@dimen/dimen_15dp"
+                android:paddingTop="@dimen/dimen_15dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="线币余额:"
+                    android:textColor="#222222"
+                    android:textSize="@dimen/dimen_15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_5dp"
+                    android:text="50线币"
+                    android:textColor="@color/color_de171e"
+                    android:textSize="@dimen/dimen_15sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_20dp"
+                android:background="@color/color_f9f9f9" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:paddingRight="@dimen/dimen_15dp"
+                android:paddingTop="@dimen/dimen_10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="充线币"
+                    android:textSize="@dimen/dimen_16sp"
+                    android:textColor="#222222" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupCharge1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_15dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_one"
+                        style="@style/radioButton"
+                        android:background="@drawable/selector_my_charge_bg"
+                        android:inputType="textMultiLine"
+                        android:padding="@dimen/dimen_12dp"
+                        android:text="100线币\n10元"
+                        android:textColor="@color/color_333333"
+                        android:checked="true"
+                        android:textSize="@dimen/dimen_14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_two"
+                        style="@style/radioButton"
+                        android:layout_marginLeft="@dimen/dimen_10dp"
+                        android:layout_marginRight="@dimen/dimen_10dp"
+                        android:background="@drawable/selector_my_charge_bg"
+                        android:inputType="textMultiLine"
+                        android:padding="@dimen/dimen_12dp"
+                        android:text="200线币\n20元"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dimen_14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_three"
+                        style="@style/radioButton"
+                        android:background="@drawable/selector_my_charge_bg"
+                        android:padding="@dimen/dimen_12dp"
+                        android:inputType="textMultiLine"
+                        android:text="500线币\n50元"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dimen_14sp" />
+
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/radioGroupCharge2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/album_dp_10"
+                    android:layout_marginTop="@dimen/album_dp_10"
+                    android:orientation="horizontal">
+
+
+                    <RadioButton
+                        android:id="@+id/rb_four"
+                        style="@style/radioButton"
+                        android:background="@drawable/selector_my_charge_bg"
+                        android:inputType="textMultiLine"
+                        android:padding="@dimen/dimen_12dp"
+                        android:text="1000线币\n100元"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dimen_14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_five"
+                        style="@style/radioButton"
+                        android:layout_marginLeft="@dimen/dimen_10dp"
+                        android:layout_marginRight="@dimen/dimen_10dp"
+                        android:background="@drawable/selector_my_charge_bg"
+                        android:inputType="textMultiLine"
+                        android:padding="@dimen/dimen_12dp"
+                        android:text="2000线币\n200元"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dimen_14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_six"
+                        style="@style/radioButton"
+                        android:background="@drawable/selector_my_charge_bg"
+                        android:inputType="textMultiLine"
+                        android:padding="@dimen/dimen_12dp"
+                        android:text="3000线币\n300元"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dimen_14sp" />
+
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/radioGroupCharge3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <RadioButton
+                        android:id="@+id/rb_seven"
+                        style="@style/radioButton"
+                        android:background="@drawable/selector_my_charge_bg"
+                        android:inputType="textMultiLine"
+                        android:padding="@dimen/dimen_12dp"
+                        android:text="5000线币\n500元"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dimen_14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_eight"
+                        style="@style/radioButton"
+                        android:layout_marginLeft="@dimen/dimen_10dp"
+                        android:layout_marginRight="@dimen/dimen_10dp"
+                        android:background="@drawable/selector_my_charge_bg"
+                        android:inputType="textMultiLine"
+                        android:padding="@dimen/dimen_12dp"
+                        android:text="8000线币\n800元"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dimen_14sp" />
+
+                    <RadioButton
+                        android:id="@+id/rb_nine"
+                        style="@style/radioButton"
+                        android:background="@drawable/selector_my_charge_bg"
+                        android:inputType="textMultiLine"
+                        android:paddingBottom="@dimen/dimen_12dp"
+                        android:paddingTop="@dimen/dimen_12dp"
+                        android:textColor="@color/color_333333"
+                        android:text="10000线币\n1000元"
+                        android:textSize="@dimen/dimen_14sp" />
+
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_30dp"
+                android:layout_marginRight="@dimen/dimen_30dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:gravity="center"
+                android:paddingTop="@dimen/dimen_13dp"
+                android:paddingBottom="@dimen/dimen_13dp"
+                android:background="@drawable/shape_login_bg"
+                android:text="确认充值"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_30dp"
+                android:background="@color/color_f9f9f9" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_15dp"
+                android:gravity="center_vertical|center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/view_left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/album_dp_10"
+                    android:layout_marginRight="@dimen/album_dp_10"
+                    android:text="优惠说明"
+                    android:textColor="#666666"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/view_right" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_15dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_3dp"
+                    android:text="★"
+                    android:textColor="@color/color_de171e"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/dimen_3dp"
+                    android:text="充值100元可以成为1星★会员,享受9折优惠；"
+                    android:textSize="@dimen/dimen_12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_3dp"
+                    android:text="★"
+                    android:textColor="@color/color_de171e"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/dimen_3dp"
+                    android:text="充值300元可以成为2星★★会员,享受8折优惠；"
+                    android:textSize="@dimen/dimen_12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="★"
+                    android:textColor="@color/color_de171e"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/dimen_3dp"
+                    android:text="充值500元可以成为3星★★★会员,享受7折优惠；"
+                    android:textSize="@dimen/dimen_12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="★"
+                    android:textColor="@color/color_de171e"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/dimen_3dp"
+                    android:text="充值800元可以成为4星★★★★会员,享受6折优惠；"
+                    android:textSize="@dimen/dimen_12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_40dp"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="★"
+                    android:textColor="@color/color_de171e"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/dimen_3dp"
+                    android:text="充值1000元可以成为5星★★★★★会员,享受5折优惠。"
+                    android:textSize="@dimen/dimen_12sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

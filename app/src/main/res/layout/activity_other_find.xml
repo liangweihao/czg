@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.gcyh.jiedian.find.activity.OtherFindActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smart_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlHeaderMaxDragRate="5"
+        app:srlHeaderHeight="40dp"
+        app:srlFooterHeight="40dp"
+        app:srlFooterMaxDragRate="5"
+        app:srlAccentColor="@color/color_333333"
+        app:srlPrimaryColor="@color/white">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleView_Other_Find"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"/>
+
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</LinearLayout>

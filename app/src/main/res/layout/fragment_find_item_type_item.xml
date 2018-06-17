@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:gravity="center"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/dimen_5dp">
+    
+    <TextView
+        android:layout_width="@dimen/dimen_31dp"
+        android:layout_height="@dimen/dimen_14dp"
+        android:textSize="@dimen/dimen_8sp"
+        android:gravity="center"
+        android:textColor="@color/color_de171e"
+        android:background="@drawable/shape_find_item_type_bg"
+        android:text="材料"/>
+
+</LinearLayout>

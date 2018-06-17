@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.gcyh.jiedian.my.activity.MyMoneyDetailsActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#6a6a6a"
+        android:paddingTop="@dimen/dimen_20dp"
+        android:paddingBottom="@dimen/dimen_20dp"
+        android:paddingLeft="@dimen/dimen_15dp"
+        android:paddingRight="@dimen/dimen_15dp"
+        android:background="@color/color_f9f9f9"
+        android:textSize="@dimen/dimen_11sp"
+        android:text="@string/money_details"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView_money_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_moeny_null"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_140dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/order_null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:text="您还没有相关的线币明细"
+            android:textSize="@dimen/dimen_16sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
