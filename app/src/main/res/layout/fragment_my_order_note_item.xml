@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_marginTop="@dimen/dimen_15dp"
+    android:paddingLeft="@dimen/dimen_15dp"
+    android:paddingRight="@dimen/dimen_15dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_my_order_note_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/dimen_12sp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:textColor="#5f5f5f"
+            android:text="下单时间：2018-05-03"/>
+
+        <TextView
+            android:id="@+id/tv_my_order_note_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评价"
+            android:textColor="@color/color_de171e"
+            android:textSize="@dimen/dimen_12sp"
+            android:paddingTop="@dimen/dimen_5dp"
+            android:paddingBottom="@dimen/dimen_5dp"
+            android:paddingLeft="@dimen/dimen_15dp"
+            android:paddingRight="@dimen/dimen_15dp"
+            android:visibility="gone"
+            android:background="@drawable/shape_find_classifl_content_item_select_bg"/>
+
+        <com.gcyh.jiedian.widget.RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:clickable="false"
+            app:starCount="5"
+            app:starFill="@mipmap/comment_small_star"
+            app:starImageSize="13dp"
+            app:starPadding="3dp"
+            app:starStep="3"
+            app:stepSize="Full" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="@dimen/dimen_100dp"
+            android:layout_height="@dimen/dimen_70dp"
+            android:background="@color/color_d6d6d6">
+
+            <ImageView
+                android:id="@+id/iv_my_order_note_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/jiedian_item"/>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_my_order_note_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:textSize="@dimen/dimen_13sp"
+            android:text="石膏板吊顶节点详图"
+            android:textColor="#00000c"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:background="#ebebeb"
+        android:layout_marginTop="@dimen/dimen_5dp" />
+
+    <TextView
+        android:id="@+id/tv_my_order_note_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#090909"
+        android:gravity="right"
+        android:textSize="@dimen/dimen_12sp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:text="实付：50线币"/>
+
+
+</LinearLayout>

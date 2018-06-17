@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:layout_height="wrap_content">
+
+  <View
+      android:layout_width="@dimen/dimen_3dp"
+      android:layout_height="match_parent"
+      android:background="@color/color_de171e"/>
+
+    <TextView
+        android:id="@+id/tv_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dimen_14sp"
+        android:textColor="@color/color_333333"
+        android:layout_marginLeft="@dimen/dimen_5dp"
+        android:text="商品"/>
+
+</LinearLayout>

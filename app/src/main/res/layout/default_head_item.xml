@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="@dimen/dimen_83dp"
+    android:layout_height="@dimen/dimen_83dp">
+
+    <ImageView
+        android:id="@+id/iv_default_head_pic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/student_women"/>
+
+    <ImageView
+        android:id="@+id/iv_default_head_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_3dp"
+        android:layout_marginRight="@dimen/dimen_3dp"
+        android:src="@mipmap/shop_car_select"
+        android:visibility="visible"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

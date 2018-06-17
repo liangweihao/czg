@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.gcyh.jiedian.my.activity.MyDownLoadActivity">
+
+    <include layout="@layout/toolbar"/>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@color/white"
+       android:orientation="horizontal">
+
+       <LinearLayout
+           android:id="@+id/ll_my_downloading"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:gravity="center|center_horizontal"
+           android:layout_weight="1"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/tv_my_downloading"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:gravity="center"
+               android:textSize="@dimen/dimen_14sp"
+               android:paddingTop="@dimen/dimen_10dp"
+               android:paddingBottom="@dimen/dimen_10dp"
+               android:textColor="@color/color_323232"
+               android:text="下载中"/>
+
+           <ImageView
+               android:id="@+id/iv_my_downloading"
+               android:layout_width="@dimen/dimen_100dp"
+               android:layout_height="@dimen/dimen_2dp"
+               android:background="@color/white"/>
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:id="@+id/ll_my_finish_download"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:gravity="center|center_horizontal"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/tv_my_finish_download"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:gravity="center"
+               android:textSize="@dimen/dimen_14sp"
+               android:paddingTop="@dimen/dimen_10dp"
+               android:paddingBottom="@dimen/dimen_10dp"
+               android:textColor="@color/color_323232"
+               android:text="已下载"/>
+
+           <ImageView
+               android:id="@+id/iv_my_finish_download"
+               android:layout_width="@dimen/dimen_100dp"
+               android:layout_height="@dimen/dimen_2dp"
+               android:background="@color/white"/>
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:background="@color/color_d6d6d6"/>
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

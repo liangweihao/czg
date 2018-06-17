@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_f2f2f2"
+    android:fitsSystemWindows="true"
+    tools:context="com.gcyh.jiedian.my.activity.FeedBackActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dimen_18dp"
+                android:paddingTop="@dimen/dimen_15dp"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:text="选择反馈类型"
+                android:textColor="#222222"
+                android:textSize="@dimen/dimen_15sp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:paddingRight="@dimen/dimen_15dp"
+                android:paddingBottom="@dimen/dimen_20dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_feed_back_product_idea"
+                    style="@style/radioButton"
+                    android:textColor="@drawable/selector_feed_back_item_text_color"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:checked="true"
+                    android:paddingTop="@dimen/album_dp_10"
+                    android:paddingBottom="@dimen/album_dp_10"
+                    android:background="@drawable/selector_feed_back_bg"
+                    android:text="产品建议"/>
+
+                <RadioButton
+                    android:id="@+id/rb_feed_back_program_error"
+                    style="@style/radioButton"
+                    android:textSize="@dimen/dimen_15sp"
+                    android:textColor="@drawable/selector_feed_back_item_text_color"
+                    android:background="@drawable/selector_feed_back_bg"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:paddingTop="@dimen/album_dp_10"
+                    android:paddingBottom="@dimen/album_dp_10"
+                    android:text="使用问题"/>
+
+                <RadioButton
+                    android:id="@+id/rb_feed_back_lack_content"
+                    style="@style/radioButton"
+                    android:textSize="@dimen/dimen_15sp"
+                    android:textColor="@drawable/selector_feed_back_item_text_color"
+                    android:background="@drawable/selector_feed_back_bg"
+                    android:paddingTop="@dimen/album_dp_10"
+                    android:paddingBottom="@dimen/album_dp_10"
+                    android:text="其他"/>
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/et_feed_back_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_120dp"
+                android:textSize="@dimen/dimen_14sp"
+                android:layout_marginTop="@dimen/dimen_15dp"
+                android:paddingTop="@dimen/dimen_10dp"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp"
+                android:maxLength="500"
+                android:gravity="top"
+                android:textColor="#ababab"
+                android:hint="@string/feed_back_content"
+                android:background="@color/white"/>
+
+            <TextView
+                android:id="@+id/tv_feed_back_content_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ababab"
+                android:background="@color/white"
+                android:gravity="right"
+                android:textSize="@dimen/dimen_14sp"
+                android:paddingRight="@dimen/dimen_15dp"
+                android:paddingBottom="@dimen/dimen_10dp"
+                android:text="0/500"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_marginLeft="@dimen/dimen_15dp"
+                android:background="#ebebeb"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="@dimen/dimen_15dp"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:textSize="@dimen/dimen_14sp"
+                android:textColor="#393939"
+                android:text="上传图片(0/3)"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleView_Feed_Back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dimen_12dp"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:paddingRight="@dimen/dimen_15dp"
+                android:scrollbars="none"
+                android:background="@color/white"/>
+
+            <EditText
+                android:id="@+id/et_feed_back_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="@dimen/dimen_15dp"
+                android:paddingLeft="@dimen/dimen_18dp"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:textSize="@dimen/dimen_15sp"
+                android:hint="请输入您的手机号码"/>
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_53dp"
+                android:layout_marginRight="@dimen/dimen_53dp"
+                android:layout_marginTop="@dimen/dimen_40dp"
+                android:layout_marginBottom="@dimen/dimen_85dp"
+                android:background="@drawable/shape_login_bg"
+                android:text="提交"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_16sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.gcyh.jiedian.library.activity.ProjectLibraryDetailsActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_projectlibrary_details_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ar_bg" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_25dp"
+                android:paddingRight="@dimen/dimen_20dp"
+                android:paddingTop="@dimen/dimen_20dp">
+
+                <TextView
+                    android:id="@+id/tv_projectlibrary_details_fangansheji"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="方案设计公司：天津建筑设计公司"
+                    android:textColor="#848383"
+                    android:textSize="@dimen/dimen_11sp" />
+
+                <TextView
+                    android:id="@+id/tv_projectlibrary_details_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/time"
+                    android:drawablePadding="@dimen/dimen_3dp"
+                    android:text="2018-08-07"
+                    android:textSize="@dimen/dimen_13sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_projectlibrary_details_shigongtushenhua"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dimen_25dp"
+                android:paddingRight="@dimen/dimen_15dp"
+                android:paddingTop="@dimen/dimen_7dp"
+                android:singleLine="true"
+                android:text="施工图深化公司：北京共呈壹合有限公司"
+                android:textColor="#848383"
+                android:textSize="@dimen/dimen_11sp" />
+
+            <TextView
+                android:id="@+id/tv_projectlibrary_details_shigongdanwei"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:paddingLeft="@dimen/dimen_25dp"
+                android:paddingRight="@dimen/dimen_15dp"
+                android:paddingTop="@dimen/dimen_7dp"
+                android:singleLine="true"
+                android:text="施工单位：北京建工四建工程建筑单位"
+                android:textColor="#848383"
+                android:textSize="@dimen/dimen_11sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical|center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:paddingTop="@dimen/dimen_13dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/view_left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:text="项目介绍"
+                    android:textColor="#666666"
+                    android:textSize="@dimen/dimen_14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/view_right" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_projectlibrary_details_project_introduce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/dimen_13dp"
+                android:paddingLeft="@dimen/dimen_15dp"
+                android:paddingRight="@dimen/dimen_15dp"
+                android:text="该项目规划两层建筑，该项目规划两层建筑，该项目规划两层建筑，该项目规划两层建筑，该项目规划两层建筑，该项目规划两层建筑"
+                android:textColor="#5b5b5b"
+                android:textSize="@dimen/dimen_12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|center"
+                android:paddingTop="@dimen/dimen_15dp"
+                android:paddingBottom="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/view_left"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dimen_14sp"
+                    android:layout_marginLeft="@dimen/dimen_10dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:textColor="#666666"
+                    android:text="节点展示"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/view_right" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycleViewProjectLibraryDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/dimen_40dp"
+                android:scrollbars="none" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_projectlibrary_details_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_26dp"
+            android:text="50"
+            android:textColor="@color/color_de171e"
+            android:textSize="@dimen/dimen_18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:text="线币"
+            android:textColor="@color/color_de171e"
+            android:textSize="@dimen/dimen_13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:id="@+id/ll_projectlibrary_details_collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_projectlibrary_details_collect_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/project_library_heart_select" />
+
+            <TextView
+                android:id="@+id/tv_projectlibrary_details_collect_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_2dp"
+                android:text="已收藏"
+                android:textColor="#616161"
+                android:textSize="@dimen/dimen_11sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_projectlibrary_details_add_shop_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/project_library_add_shop_car" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_2dp"
+                android:text="加入购物车"
+                android:textColor="#616161"
+                android:textSize="@dimen/dimen_11sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_projectlibrary_details_details_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/color_de171e"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dimen_25dp"
+            android:paddingRight="@dimen/dimen_25dp"
+            android:text="立即购买"
+            android:textColor="@color/white" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
