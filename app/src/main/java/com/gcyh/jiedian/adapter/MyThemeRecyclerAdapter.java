@@ -6,6 +6,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,7 +76,11 @@ public class MyThemeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             //头像
             Glide.with(context).load(UrlAll.DOWN_LOAD_IMAGE+userInfo.getPhoto()+".png").asBitmap().error(R.mipmap.my_head).into(((HeadViewHolder) holder).ivMyThemeHead);
            //背景图片
-            Glide.with(context).load(UrlAll.DOWN_LOAD_IMAGE+userInfo.getBackImg()+".png").asBitmap().error(R.mipmap.my_theme_bg).into(((HeadViewHolder) holder).ivMyThemePic);
+            if (!TextUtils.isEmpty(userInfo.getBackImg())&&userInfo.getBackImg().contains("image/")){
+                Glide.with(context).load(UrlAll.DOWN_LOAD_IMAGE+userInfo.getBackImg()+".png").asBitmap().error(R.mipmap.my_theme_bg).into(((HeadViewHolder) holder).ivMyThemePic);
+            }else {
+                Glide.with(context).load(userInfo.getBackImg()).asBitmap().error(R.mipmap.my_theme_bg).into(((HeadViewHolder) holder).ivMyThemePic);
+            }
             //更换主题背景图
             ((HeadViewHolder) holder).ivMyThemePic.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -109,10 +114,9 @@ public class MyThemeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         }
 
         if (holder instanceof ItemViewHolder) {
-
+          int  positionLocation = position-1 ;
             //头像
             Glide.with(context).load("http://7xi8d6.com1.z0.glb.clouddn.com/20171219224721_wFH5PL_Screenshot.jpeg").asBitmap().into(((ItemViewHolder) holder).ivMyThemeItemHead);
-
 
             //数据源
             data.clear();
@@ -150,7 +154,7 @@ public class MyThemeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     @Override
     public int getItemCount() {
-        return list.size() ;
+        return list.size() +1 ;
     }
 
     //头布局

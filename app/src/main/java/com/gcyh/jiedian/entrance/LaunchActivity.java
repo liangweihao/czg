@@ -54,6 +54,7 @@ public class LaunchActivity extends AppCompatActivity {
         isFirst = SPUtil.getBoolean(this, "isFirst", true);
         token_id = SPUtil.getString(this, "token_id", "");
 
+
         countdowntimer = new MyCountdownTimer(3000, 1000);
         countdowntimer.start();
         handler.postDelayed(new Runnable() {
@@ -80,7 +81,7 @@ public class LaunchActivity extends AppCompatActivity {
 
                     }else {
                         //未登录--跳到登录页面
-                        Intent intent = new Intent(LaunchActivity.this , LoginActivity.class) ;
+                        Intent intent = new Intent(LaunchActivity.this , MainActivity.class) ;
                         startActivity(intent);
                         finish();
                     }

@@ -13,7 +13,8 @@ public class UrlAll {
     //  http://192.168.168.120:8080/gcyh_app/api/pri/login/sendSMS
 
 
-    public static final String LOCATION_SERVICE_ADDRESS = "http://192.168.1.113:8080/gcyh_app/api/pri/";
+    public static final String LOCATION_SERVICE_ADDRESS = "http://39.104.173.169:8080/gcyh_app/api/pri/";
+//    public static final String LOCATION_SERVICE_ADDRESS = "http://192.168.1.113:8080/gcyh_app/api/pri/";
     public static final String DOWN_LOAD_IMAGE = "http://gcyhnodelibrary.oss-cn-beijing.aliyuncs.com/";
 
     /**

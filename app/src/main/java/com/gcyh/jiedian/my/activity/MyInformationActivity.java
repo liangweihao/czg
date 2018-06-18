@@ -29,13 +29,7 @@ import com.gcyh.jiedian.util.SPUtil;
 import com.gcyh.jiedian.util.TakePhotoPopWin;
 import com.gcyh.jiedian.util.ToastUtil;
 import com.gcyh.jiedian.widget.CircleImageView;
-import com.gcyh.jiedian.widget.GlideCircleTransform;
-import com.lljjcoder.Interface.OnCityItemClickListener;
-import com.lljjcoder.bean.CityBean;
-import com.lljjcoder.bean.DistrictBean;
-import com.lljjcoder.bean.ProvinceBean;
-import com.lljjcoder.citywheel.CityConfig;
-import com.lljjcoder.style.citypickerview.CityPickerView;
+import com.lljjcoder.citypickerview.widget.CityPicker;
 import com.yanzhenjie.album.Album;
 
 import java.io.Serializable;
@@ -83,10 +77,6 @@ public class MyInformationActivity extends BaseActivity {
     @BindView(R.id.tv_information_mail)
     TextView tvInformationMail;
 
-    //省份
-    CityPickerView mCityPickerView = new CityPickerView();
-    CityConfig.WheelType mWheelType = CityConfig.WheelType.PRO_CITY;
-
     private TakePhotoPopWin takePhotoPopWin;
 
     int[] imageRes = {
@@ -104,8 +94,8 @@ public class MyInformationActivity extends BaseActivity {
     private My.ResponseParamsBean.UserInfoBean infor;
     private String token_id;
     private List<String> pathList;
-    private String provinceName;
-    private String cityName;
+    private String provinceName = "";
+    private String cityName = "";
 
 
     @Override
@@ -114,7 +104,7 @@ public class MyInformationActivity extends BaseActivity {
         ButterKnife.bind(this);
         token_id = SPUtil.getString(this, "token_id", "");
         infor = (My.ResponseParamsBean.UserInfoBean) getIntent().getSerializableExtra("infor");
-        mCityPickerView.init(this);
+
         txtToolbarRight.setVisibility(View.VISIBLE);
         txtToolbarRight.setText("提交");
         setData(infor) ;
@@ -189,7 +179,7 @@ public class MyInformationActivity extends BaseActivity {
 
                 //头像路径
                 long time = System.currentTimeMillis();  // 时间戳
-                String phoneNumber = infor.getPhone();
+                String phoneNumber = tvInformationPhone.getText().toString();
                 String phone = phoneNumber.substring(7, phoneNumber.length());  //电话后四位
                 String imagePic = phone + time +"0" ;
                 // 昵称
@@ -224,7 +214,7 @@ public class MyInformationActivity extends BaseActivity {
                 break;
             case R.id.ll_my_information_province:
                 //省份
-                wheel();
+                selectAddress();
                 break;
             case R.id.ll_my_information_mail:
                 //邮箱
@@ -252,6 +242,7 @@ public class MyInformationActivity extends BaseActivity {
                     public void onError(Throwable e) {
                         ToastUtil.show(MyInformationActivity.this, "上传失败");
                         Log.i("====", "onError: " + e.toString());
+                        LoadDialog.dismiss();
                     }
 
                     @Override
@@ -301,36 +292,37 @@ public class MyInformationActivity extends BaseActivity {
     /**
      * 省份选择器
      */
-    private void wheel() {
-
-        CityConfig cityConfig = new CityConfig.Builder().title("选择城市").setCityWheelType(mWheelType).build();
-        cityConfig.setDefaultProvinceName("北京市");
-        cityConfig.setDefaultCityName("北京市");
-
-        mCityPickerView.setConfig(cityConfig);
-        mCityPickerView.setOnCityItemClickListener(new OnCityItemClickListener() {
+    private void selectAddress() {
+        CityPicker cityPicker = new CityPicker.Builder(MyInformationActivity.this)
+                .textSize(15)
+                .title("选择城市")
+                .confirTextColor("#000000")
+                .cancelTextColor("#000000")
+                .province("北京市")
+                .city("北京市")
+                .district("")
+                .textColor(Color.parseColor("#696969"))
+                .provinceCyclic(true)
+                .cityCyclic(false)
+                .districtCyclic(false)
+                .visibleItemsCount(7)
+                .itemPadding(10)
+                .onlyShowProvinceAndCity(true)
+                .build();
+        cityPicker.show();
+        //监听方法，获取选择结果
+        cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
             @Override
-            public void onSelected(ProvinceBean province, CityBean city, DistrictBean district) {
-                StringBuilder sb = new StringBuilder();
-                if (province != null) {
-                    provinceName = province.getName();
-                    sb.append(provinceName + "-");
-                }
-                if (city != null) {
-                    cityName = city.getName();
-                    sb.append(cityName);
-                }
-                tvInformationProvince.setText("" + sb.toString());
+            public void onSelected(String... citySelected) {
+                //省份
+                provinceName = citySelected[0];
+                //城市
+                cityName = citySelected[1];
+                //为TextView赋值
+                tvInformationProvince.setText(provinceName.trim() + "-" + cityName.trim());
                 tvInformationProvince.setTextColor(Color.parseColor("#85858b"));
             }
-
-            @Override
-            public void onCancel() {
-                ToastUtil.show(MyInformationActivity.this, "您未选择地址");
-            }
         });
-        mCityPickerView.showCityPicker();
-
     }
 
     @Override

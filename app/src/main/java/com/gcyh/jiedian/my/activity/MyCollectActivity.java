@@ -146,7 +146,7 @@ public class MyCollectActivity extends BaseActivity {
         TabLayoutFragmentAdapter adatper = new TabLayoutFragmentAdapter(getSupportFragmentManager(), fragments, titles);
 
         libraryViewPager.setAdapter(adatper);
-        libraryViewPager.setOffscreenPageLimit(2);
+        libraryViewPager.setOffscreenPageLimit(3);
         //将TabLayout和ViewPager关联起来。
         libraryXxTablayout.setupWithViewPager(libraryViewPager);
 
@@ -170,7 +170,7 @@ public class MyCollectActivity extends BaseActivity {
                     }
                 } else if (tab.getPosition() == 1) {
                     libraryViewPager.setCurrentItem(1);
-                    int type = SPUtil.getInt(MyCollectActivity.this, "LIBRARY_COLLECT_PROJECT_CODE", 1);
+                    int type = SPUtil.getInt(MyCollectActivity.this, "LIBRARY_COLLECT_PROJECT_CODE", 2);
                     if (type == 1) {
                         //列表
                         ivToolbarRight.setImageResource(R.mipmap.type_list);

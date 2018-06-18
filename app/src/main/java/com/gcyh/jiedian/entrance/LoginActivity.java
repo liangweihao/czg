@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -164,6 +165,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onNext(Login model) {
                         if (model.getRntCode().equals("OK")) {
+                            Log.i("====", "onCreate: ===="+model.getResponseParams());
                             ToastUtil.show(LoginActivity.this, model.getRntMsg());
                             SPUtil.setString(LoginActivity.this, "token_id", model.getResponseParams()); //保存token
                             SPUtil.setString(LoginActivity.this, "phone", phone);  //保存手机号

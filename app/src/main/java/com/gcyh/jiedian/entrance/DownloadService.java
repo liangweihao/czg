@@ -35,6 +35,7 @@ import java.util.Map;
 
 public class DownloadService extends Service {
 
+    private static final String TAG = "DownloadService";
     private Context mContext;
     private DownloadBinder mBinder = new DownloadBinder();
     private List<LibraryNoteList.ResponseParamsBean> list;
@@ -61,6 +62,7 @@ public class DownloadService extends Service {
                             downloading.add(0 , map);
                             SPUtil.saveInfo(mContext , "downloading" , downloading);
 
+                            Log.d(TAG, "onStart() called with: currentSize = [" + currentSize + "], totalSize = [" + totalSize + "], progress = [" + progress + "]");
                         }
 
                         @Override
@@ -69,9 +71,10 @@ public class DownloadService extends Service {
                             bundle.putInt("progress" , (int) progress) ;
                             bundle.putInt("position" , position);
                             bundle.putInt("id" , list.get(position).getNodeData().getId());
-                            EventBusUtil.postEvent(EventBusCode.LIBRARY_UPDATE_PROCESS , bundle);
-                            EventBusUtil.postEvent(EventBusCode.LIBRARY_UPDATE_PROCESS_DOWNLOADING , bundle);
+                            EventBusUtil.postEvent(EventBusCode.LIBRARY_UPDATE_PROCESS , bundle);  //更新节点库进度
+                            EventBusUtil.postEvent(EventBusCode.LIBRARY_UPDATE_PROCESS_DOWNLOADING , bundle); // 更新正在下载的进度
 
+                            Log.d(TAG, "onProgress() called with: currentSize = [" + currentSize + "], totalSize = [" + totalSize + "], progress = [" + progress + "]");
                         }
 
                         @Override
@@ -99,11 +102,13 @@ public class DownloadService extends Service {
                             }
                             SPUtil.saveInfo(mContext , "downloading" , downloading);
 
+                            Log.d(TAG, "onFinish() called with: file = [" + file + "]");
                         }
 
                         @Override
                         public void onWait() {
 
+                            Log.d(TAG, "onWait() called");
                         }
                     });
         }

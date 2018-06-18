@@ -68,6 +68,8 @@ public class NoteLibraryItemRecyclerAdapter extends RecyclerView.Adapter<Recycle
     public void setProcess(int position, Bundle bundle) {
         this.location = position;
         this.bundle = bundle;
+        notifyItemChanged(position);
+        Log.i("====", "setProcess: ======"+type);
     }
 
     @Override
@@ -75,7 +77,7 @@ public class NoteLibraryItemRecyclerAdapter extends RecyclerView.Adapter<Recycle
         final LibraryNoteList.ResponseParamsBean.NodeDataBean dataBean = list.get(position).getNodeData();
 
         if (holder instanceof Item1ViewHolder) {
-            if (location == position && type == 1) {
+            if (location == position) {
                 ((Item1ViewHolder) holder).verticalProgressBar1.setProgress(bundle.getInt("progress"));
             }
             //如果已下载--隐藏进度条
@@ -130,7 +132,7 @@ public class NoteLibraryItemRecyclerAdapter extends RecyclerView.Adapter<Recycle
                 @Override
                 public void onClick(View v) {
 
-                    String arImage = SPUtil.getString(context, name, "");
+                    String arImage = SPUtil.getString(context, name, "");  //判断是否下载
                     if (!TextUtils.isEmpty(arImage)) {
                         //跳转到详情
                         Intent intent = new Intent(context, NoteLibraryDetailsActivity.class);
@@ -160,7 +162,7 @@ public class NoteLibraryItemRecyclerAdapter extends RecyclerView.Adapter<Recycle
 
         }
         if (holder instanceof Item2ViewHolder) {
-            if (location == position && type == 2) {
+            if (location == position ) {
                 ((Item2ViewHolder) holder).verticalProgressBar2.setProgress(bundle.getInt("progress"));
             }
             //如果已下载--隐藏进度条

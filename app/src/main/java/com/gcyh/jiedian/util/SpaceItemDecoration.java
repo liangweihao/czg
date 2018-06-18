@@ -2,6 +2,7 @@ package com.gcyh.jiedian.util;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -21,31 +22,32 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-        super.onDraw(c, parent, state);
-    }
-
-    @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-        LinearLayoutManager layoutManager = (LinearLayoutManager) parent.getLayoutManager();
-        //竖直方向的
-        if (layoutManager.getOrientation() == LinearLayoutManager.VERTICAL) {
-            //最后一项需要 bottom
-            if (parent.getChildAdapterPosition(view) == layoutManager.getItemCount() - 1) {
-                outRect.bottom = topBottom;
+
+        int position = parent.getChildAdapterPosition(view)%2;
+
+        if (position == 0){
+            //第一个条目
+            outRect.left = leftRight ;
+            outRect.top = topBottom ;
+            outRect.right = leftRight ;
+            if (parent.getChildAdapterPosition(view) >= parent.getChildCount()-1){
+                outRect.bottom = topBottom ;
+            }else {
+                outRect.bottom = 0 ;
             }
-            outRect.top = topBottom;
-            outRect.left = leftRight;
-            outRect.right = leftRight;
-        } else {
-            //最后一项需要right
-            if (parent.getChildAdapterPosition(view) == layoutManager.getItemCount() - 1) {
-                outRect.right = leftRight;
+        }else if (position == 1){
+            //第二个条目
+            outRect.left = leftRight ;
+            outRect.top = topBottom ;
+            outRect.right = leftRight ;
+            if (parent.getChildAdapterPosition(view) >= parent.getChildCount()-1){
+                outRect.bottom = topBottom ;
+            }else {
+                outRect.bottom = 0 ;
             }
-            outRect.top = topBottom;
-            outRect.left = leftRight;
-            outRect.bottom = topBottom;
         }
+
     }
 
 }

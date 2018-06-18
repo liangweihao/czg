@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -28,6 +29,7 @@ public class PopupNoteLibraryRecycleViewAdapter extends RecyclerView.Adapter<Pop
     private String[] list;
     private Context context;
     private String type ;
+    private boolean defaults = true ;
 
     public PopupNoteLibraryRecycleViewAdapter(FragmentActivity activity, String[] mDatas, String type) {
         this.context = activity;
@@ -44,7 +46,34 @@ public class PopupNoteLibraryRecycleViewAdapter extends RecyclerView.Adapter<Pop
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
+
+        //按下状态监听
+        holder.tvContent.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_UP://松开事件发生后执行代码的区域
+                        defaults = true ;
+                        break;
+                    case MotionEvent.ACTION_DOWN://按住事件发生后执行代码的区域
+                        defaults = false ;
+                        notifyItemChanged(0);
+                        break;
+                    default:
+                        break;
+                }
+                return false;
+            }
+        });
+
         holder.tvContent.setText(list[position]);
+
+        if (position == 0 && defaults){
+            holder.tvContent.setChecked(true);
+        }else {
+            holder.tvContent.setChecked(false);
+        }
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

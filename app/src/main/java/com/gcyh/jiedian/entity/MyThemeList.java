@@ -10,7 +10,7 @@ public class MyThemeList {
 
 
     /**
-     * responseParams : {"userInfoDTO":{"AVIP":0,"BVIP":0,"SVIP":0,"concerns":0,"exp":0,"fans":0,"grade":1,"isSign":0,"shoppingCart":0,"star":0,"userCollection":0,"userInfo":{"backImg":"","balance":0,"city":"","email":"","id":23,"nameNick":"那些年","occupation":"设计师","password":"E10ADC3949BA59ABBE56E057F20F883E","phone":"15910361753","photo":"","province":"","qq":"","remark1":0,"remark2":"","remark3":"","userCode":"8","weixin":""}},"userPostFabulousDTOtList":[{"isFabulous":0,"userpost":{"commentNumber":0,"createDate":"2018-06-14 00:00:00","id":10,"image":"175315289780823691,175315289780823692","likeNumber":0,"material":"","position":"","postDetail":"世界你好呀，美女","space":"","type":"","userCode":"8"}}]}
+     * responseParams : {"userInfoDTO":{"AVIP":0,"BVIP":0,"SVIP":0,"concerns":0,"exp":0,"fans":0,"grade":1,"isSign":0,"shoppingCart":0,"star":0,"userCollection":0,"userInfo":{"backImg":"","balance":0,"city":"天津市","email":"","id":23,"nameNick":"那些年","occupation":"设计师","password":"E10ADC3949BA59ABBE56E057F20F883E","phone":"15910361753","photo":"天津市","province":"天津市","qq":"","remark1":3,"remark2":"","remark3":"","userCode":"8","weixin":""}},"userPostFabulousDTOtList":[{"isFabulous":1,"userpost":{"commentNumber":0,"createDate":"2018-06-14 00:00:00","id":10,"image":"175315289780823691,175315289780823692","likeNumber":0,"material":"","position":"","postDetail":"世界你好呀，美女","space":"","type":"","userCode":"8"}}]}
      * rntCode : OK
      * rntCodeValue : 1
      * rntMsg : 成功
@@ -55,8 +55,8 @@ public class MyThemeList {
 
     public static class ResponseParamsBean {
         /**
-         * userInfoDTO : {"AVIP":0,"BVIP":0,"SVIP":0,"concerns":0,"exp":0,"fans":0,"grade":1,"isSign":0,"shoppingCart":0,"star":0,"userCollection":0,"userInfo":{"backImg":"","balance":0,"city":"","email":"","id":23,"nameNick":"那些年","occupation":"设计师","password":"E10ADC3949BA59ABBE56E057F20F883E","phone":"15910361753","photo":"","province":"","qq":"","remark1":0,"remark2":"","remark3":"","userCode":"8","weixin":""}}
-         * userPostFabulousDTOtList : [{"isFabulous":0,"userpost":{"commentNumber":0,"createDate":"2018-06-14 00:00:00","id":10,"image":"175315289780823691,175315289780823692","likeNumber":0,"material":"","position":"","postDetail":"世界你好呀，美女","space":"","type":"","userCode":"8"}}]
+         * userInfoDTO : {"AVIP":0,"BVIP":0,"SVIP":0,"concerns":0,"exp":0,"fans":0,"grade":1,"isSign":0,"shoppingCart":0,"star":0,"userCollection":0,"userInfo":{"backImg":"","balance":0,"city":"天津市","email":"","id":23,"nameNick":"那些年","occupation":"设计师","password":"E10ADC3949BA59ABBE56E057F20F883E","phone":"15910361753","photo":"天津市","province":"天津市","qq":"","remark1":3,"remark2":"","remark3":"","userCode":"8","weixin":""}}
+         * userPostFabulousDTOtList : [{"isFabulous":1,"userpost":{"commentNumber":0,"createDate":"2018-06-14 00:00:00","id":10,"image":"175315289780823691,175315289780823692","likeNumber":0,"material":"","position":"","postDetail":"世界你好呀，美女","space":"","type":"","userCode":"8"}}]
          */
 
         private UserInfoDTOBean userInfoDTO;
@@ -91,7 +91,7 @@ public class MyThemeList {
              * shoppingCart : 0
              * star : 0
              * userCollection : 0
-             * userInfo : {"backImg":"","balance":0,"city":"","email":"","id":23,"nameNick":"那些年","occupation":"设计师","password":"E10ADC3949BA59ABBE56E057F20F883E","phone":"15910361753","photo":"","province":"","qq":"","remark1":0,"remark2":"","remark3":"","userCode":"8","weixin":""}
+             * userInfo : {"backImg":"","balance":0,"city":"天津市","email":"","id":23,"nameNick":"那些年","occupation":"设计师","password":"E10ADC3949BA59ABBE56E057F20F883E","phone":"15910361753","photo":"天津市","province":"天津市","qq":"","remark1":3,"remark2":"","remark3":"","userCode":"8","weixin":""}
              */
 
             private int AVIP;
@@ -207,17 +207,17 @@ public class MyThemeList {
                 /**
                  * backImg :
                  * balance : 0
-                 * city :
+                 * city : 天津市
                  * email :
                  * id : 23
                  * nameNick : 那些年
                  * occupation : 设计师
                  * password : E10ADC3949BA59ABBE56E057F20F883E
                  * phone : 15910361753
-                 * photo :
-                 * province :
+                 * photo : 天津市
+                 * province : 天津市
                  * qq :
-                 * remark1 : 0
+                 * remark1 : 3
                  * remark2 :
                  * remark3 :
                  * userCode : 8
@@ -382,7 +382,7 @@ public class MyThemeList {
 
         public static class UserPostFabulousDTOtListBean {
             /**
-             * isFabulous : 0
+             * isFabulous : 1
              * userpost : {"commentNumber":0,"createDate":"2018-06-14 00:00:00","id":10,"image":"175315289780823691,175315289780823692","likeNumber":0,"material":"","position":"","postDetail":"世界你好呀，美女","space":"","type":"","userCode":"8"}
              */
 

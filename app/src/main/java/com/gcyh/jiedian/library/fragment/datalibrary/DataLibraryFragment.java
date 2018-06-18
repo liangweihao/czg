@@ -101,7 +101,12 @@ public class DataLibraryFragment extends BaseFragment {
     @Override
     protected void initPresenter() {
         token_id = SPUtil.getString(getActivity(), "token_id", "");
-
+        if (NetWorkUtils.isNetworkEnable(getActivity())) {
+            libraryDataListHttp(token_id, standard, data, materialConsumption, symbolCode);
+            llDatalibraryNull.setVisibility(View.GONE);
+        } else {
+            llDatalibraryNull.setVisibility(View.VISIBLE);
+        }
     }
 
     private void libraryDataListHttp(String token_id, String standard, String data, String materialConsumption, String symbolCode) {
@@ -166,7 +171,7 @@ public class DataLibraryFragment extends BaseFragment {
         }
         manager = new GridLayoutManager(getActivity(), type);
         recycleViewDataLibrary.setLayoutManager(manager);
-        recycleViewDataLibrary.addItemDecoration(new SpaceItemDecoration(15, 20));
+        recycleViewDataLibrary.addItemDecoration(new SpaceItemDecoration(15, 10));
         recycleViewDataLibrary.setHasFixedSize(true);
         adapter = new DataLibraryItemRecyclerAdapter(getActivity(), list, type);
         recycleViewDataLibrary.setAdapter(adapter);
@@ -227,6 +232,7 @@ public class DataLibraryFragment extends BaseFragment {
     public void onEventMainThread(int eventCode, Bundle bundle) {
         if (eventCode == EventBusCode.CODE_LIBRARY_DATA) {
             int type = SPUtil.getInt(getActivity(), "LIBRARY_DATA_CODE", 1);
+            Log.i("=====", "onEventMainThread: ==DATA===="+type);
             if (type == 1) {
                 changeShowItemCount(2);
             } else if (type == 2) {
@@ -322,15 +328,4 @@ public class DataLibraryFragment extends BaseFragment {
         ivDatalibraryCode.setImageResource(R.mipmap.triangle_normal);
     }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        if (isVisibleToUser){
-            if (NetWorkUtils.isNetworkEnable(getActivity())) {
-                libraryDataListHttp(token_id, standard, data, materialConsumption, symbolCode);
-                llDatalibraryNull.setVisibility(View.GONE);
-            } else {
-                llDatalibraryNull.setVisibility(View.VISIBLE);
-            }
-        }
-    }
 }

@@ -33,12 +33,10 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:gravity="center_vertical"
-        android:paddingBottom="@dimen/dimen_15dp"
         android:paddingLeft="@dimen/dimen_15dp"
         android:paddingRight="@dimen/dimen_15dp"
-        android:paddingTop="@dimen/dimen_15dp"
         android:text="@string/btn_save"
-        android:textColor="@color/color_a3a3a3"
+        android:textColor="@color/white"
         android:textSize="@dimen/dimen_15sp"
         android:visibility="gone"
         />

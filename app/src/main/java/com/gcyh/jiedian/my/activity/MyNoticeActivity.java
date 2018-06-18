@@ -105,6 +105,7 @@ public class MyNoticeActivity extends BaseActivity {
                     public void onError(Throwable e) {
                         ToastUtil.show(MyNoticeActivity.this, "粉丝列表失败");
                         Log.i("====", "onError: " + e.toString());
+                        LoadDialog.dismiss();
                     }
 
                     @Override

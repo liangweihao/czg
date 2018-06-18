@@ -7,9 +7,7 @@
         android:id="@+id/recycleViewNotelibraryDiaglo"
         android:layout_width="match_parent"
         android:background="@color/white"
-        android:paddingLeft="@dimen/dimen_25dp"
         android:scrollbars="none"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/dimen_15dp"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

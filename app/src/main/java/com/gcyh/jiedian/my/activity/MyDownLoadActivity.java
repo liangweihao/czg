@@ -124,12 +124,22 @@ public class MyDownLoadActivity extends BaseActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         //1.先隐藏其他的
         for (int i = 0; i < fragments.size(); i++) {
+
             Fragment fragment = fragments.get(i);
             if (i == position) {
                 if (fragment.isAdded()) {
                     transaction.show(fragment);
                 } else {
                     //add
+                    if (position == 0){
+                        setNormalText() ;
+                        tvMyDownloading.setTextColor(this.getResources().getColor(R.color.color_de171e));
+                        ivMyDownloading.setBackgroundColor(this.getResources().getColor(R.color.color_de171e));
+                    }else if (position == 1){
+                        setNormalText() ;
+                        tvMyFinishDownload.setTextColor(this.getResources().getColor(R.color.color_de171e));
+                        ivMyFinishDownload.setBackgroundColor(this.getResources().getColor(R.color.color_de171e));
+                    }
                     transaction.add(R.id.fl_container, fragment);
                 }
             } else {
@@ -141,12 +151,6 @@ public class MyDownLoadActivity extends BaseActivity {
         //commit
         transaction.commitAllowingStateLoss();
 
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
     }
 
 }

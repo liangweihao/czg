@@ -58,10 +58,11 @@ public class OtherFindActivity extends BaseActivity {
         ButterKnife.bind(this);
         String token_id = SPUtil.getString(this, "token_id", "");
         String userCode = getIntent().getStringExtra("userCode");
+        String nameNick = getIntent().getStringExtra("nameNick");
         if (NetWorkUtils.isNetworkEnable(this)){
             setOtherFindHttp(token_id ,userCode) ;
         }
-        tvToolbarTitle.setText("刘亦菲的主题");
+        tvToolbarTitle.setText(nameNick+"的主题");
     }
 
     //访问网络
@@ -78,7 +79,7 @@ public class OtherFindActivity extends BaseActivity {
 
                     @Override
                     public void onError(Throwable e) {
-                        ToastUtil.show(OtherFindActivity.this, "点赞失败");
+                        ToastUtil.show(OtherFindActivity.this, "获取主题列表失败");
                         Log.i("====", "onError: " + e.toString());
                     }
 

@@ -24,6 +24,8 @@ import com.gcyh.jiedian.entity.LibraryNoteList;
 import com.gcyh.jiedian.http.ApiService;
 import com.gcyh.jiedian.http.RetrofitUtil;
 import com.gcyh.jiedian.util.EventBusCode;
+import com.gcyh.jiedian.util.GridSpacingItemDecoration;
+import com.gcyh.jiedian.util.LoadDialog;
 import com.gcyh.jiedian.util.NetWorkUtils;
 import com.gcyh.jiedian.util.SPUtil;
 import com.gcyh.jiedian.util.SpaceItemDecoration;
@@ -125,7 +127,7 @@ public class NoteLibraryFragment extends BaseFragment {
 
     @Override
     protected void initPresenter() {
-
+        token_id = SPUtil.getString(getActivity(), "token_id", "");
         if (NetWorkUtils.isNetworkEnable(getActivity())) {
             libraryNoteListHttp(token_id, pages, row, materials, part, space, hot, process);
 
@@ -134,14 +136,12 @@ public class NoteLibraryFragment extends BaseFragment {
         }
 
         initRefreshLayout();
-        token_id = SPUtil.getString(getActivity(), "token_id", "");
-
 
     }
 
 
     private void libraryNoteListHttp(String token_id, int pages, int row, String materials, String part, String space, String hot, String process) {
-
+        LoadDialog.show(getActivity(), "正在加载数据");
         ApiService service = RetrofitUtil.getInstance().create(ApiService.class);
         service.librarynotelist(token_id, pages, row, materials, part, space, hot, process)
                 .subscribeOn(Schedulers.io())         //请求完成后在io线程中执行
@@ -156,6 +156,7 @@ public class NoteLibraryFragment extends BaseFragment {
                     public void onError(Throwable e) {
                         ToastUtil.show(getActivity(), "节点库获取失败");
                         Log.i("====", "onError: " + e.toString());
+                        LoadDialog.dismiss();
                     }
 
                     @Override
@@ -175,6 +176,8 @@ public class NoteLibraryFragment extends BaseFragment {
                             ToastUtil.show(getActivity(), model.getRntMsg());
                         }
 
+                        LoadDialog.dismiss();
+
                     }
                 });
 
@@ -193,7 +196,7 @@ public class NoteLibraryFragment extends BaseFragment {
         }
         manager = new GridLayoutManager(getActivity(), type);
         recycleViewNoteLibrary.setLayoutManager(manager);
-        recycleViewNoteLibrary.addItemDecoration(new SpaceItemDecoration(15, 20));
+        recycleViewNoteLibrary.addItemDecoration(new SpaceItemDecoration(15, 10));
         recycleViewNoteLibrary.setHasFixedSize(true);
         adapter = new NoteLibraryItemRecyclerAdapter(getActivity(), list, type);
         recycleViewNoteLibrary.setAdapter(adapter);
@@ -250,7 +253,7 @@ public class NoteLibraryFragment extends BaseFragment {
         //找到RecyclerView，并设置布局管理器
         recyclerView.setLayoutManager(layoutManager1);
         recyclerView.setHasFixedSize(true);
-//        recyclerView.addItemDecoration(new SpaceItemDecoration(25, 20));
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(20, 10));
         PopupNoteLibraryRecycleViewAdapter adapter = new PopupNoteLibraryRecycleViewAdapter(getActivity(), list, type);
         recyclerView.setAdapter(adapter);
 
@@ -259,6 +262,8 @@ public class NoteLibraryFragment extends BaseFragment {
         popupWindow.setBackgroundDrawable(getResources().getDrawable(
                 R.color.color_80000000));
         popupWindow.setOutsideTouchable(true);
+        // 设置此参数获得焦点，否则无法点击
+        popupWindow.setFocusable(false);
         // 设置好参数之后再show
         //    popupWindow.showAsDropDown(v);
         showAsDropDown(popupWindow, v, 0, 0);
@@ -331,6 +336,7 @@ public class NoteLibraryFragment extends BaseFragment {
         }
         if (eventCode == EventBusCode.CODE_LIBRARY_NOTE) {
             int type = SPUtil.getInt(getActivity(), "LIBRARY_NOTE_CODE", 1);
+            Log.i("=====", "onEventMainThread: ==NOTE====" + type);
             if (type == 1) {
                 changeShowItemCount(2);
             } else if (type == 2) {
@@ -355,11 +361,19 @@ public class NoteLibraryFragment extends BaseFragment {
             int position = bundle.getInt("position");
             Log.i("====", "onBindViewHolder: ===" + position);
             Log.i("====", "onBindViewHolder: ===" + bundle.getInt("progress"));
-            adapter.setProcess(position, bundle);
-            adapter.notifyItemChanged(position);
+            int type = SPUtil.getInt(getActivity(), "LIBRARY_NOTE_CODE", 1);
+            if (type == 1){
+                //横条
+                NoteLibraryItemRecyclerAdapter adapter = (NoteLibraryItemRecyclerAdapter)recycleViewNoteLibrary.getAdapter();
+                adapter.setProcess(position, bundle);
+            }else if (type == 2){
+                //宫格
+                NoteLibraryItemRecyclerAdapter adapter = (NoteLibraryItemRecyclerAdapter)recycleViewNoteLibrary.getAdapter();
+                adapter.setProcess(position, bundle);
+            }
         }
         if (eventCode == EventBusCode.LIBRARY_NOTE_UPDATE) {
-            //收藏状态更改
+            //收藏状态更改p
             libraryNoteListHttp(token_id, pages, row, materials, part, space, hot, process);
         }
         if (eventCode == EventBusCode.DOWNLOAD_FINISH_NOTE_UPDATE) {
@@ -428,7 +442,6 @@ public class NoteLibraryFragment extends BaseFragment {
                 break;
             case R.id.ll_notelibrary_part:
                 //部位
-
                 tvNotelibraryPart.setTextColor(this.getResources().getColor(R.color.color_de171e));
                 ivNotelibraryPart.setImageResource(R.mipmap.triangle_select);
                 showPopupWindow(view, partList, R.layout.popup_notelibrary_wrap_content, "part");
@@ -468,8 +481,4 @@ public class NoteLibraryFragment extends BaseFragment {
         ivNotelibraryNewProcess.setImageResource(R.mipmap.triangle_normal);
     }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-
-    }
 }

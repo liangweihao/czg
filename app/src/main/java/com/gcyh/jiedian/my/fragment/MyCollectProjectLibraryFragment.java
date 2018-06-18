@@ -65,7 +65,7 @@ public class MyCollectProjectLibraryFragment extends BaseFragment {
                     //设置为垂直布局，这也是默认的
                     layoutManager.setOrientation(OrientationHelper.VERTICAL);
 
-                    int type = SPUtil.getInt(getActivity(), "LIBRARY_COLLECT_PROJECT_CODE", 1);
+                    int type = SPUtil.getInt(getActivity(), "LIBRARY_COLLECT_PROJECT_CODE", 2);
                     if (type == 1) {
                         recycleViewProjectLibrary.setBackgroundResource(R.color.white);
                     } else {
@@ -92,7 +92,6 @@ public class MyCollectProjectLibraryFragment extends BaseFragment {
     @Override
     protected void initView() {
 
-
     }
 
     @Override
@@ -104,13 +103,13 @@ public class MyCollectProjectLibraryFragment extends BaseFragment {
     @Override
     public void onEventMainThread(int eventCode, Bundle bundle) {
         if (eventCode == EventBusCode.CODE_MY_PROJECT) {
-            int type = SPUtil.getInt(getActivity(), "LIBRARY_COLLECT_PROJECT_CODE", 1);
+            int type = SPUtil.getInt(getActivity(), "LIBRARY_COLLECT_PROJECT_CODE", 2);
             if (type == 1) {
                 SPUtil.setInt(getActivity(), "LIBRARY_COLLECT_PROJECT_CODE", 2);
-                initView();
+                initPresenter();
             } else if (type == 2) {
                 SPUtil.setInt(getActivity(), "LIBRARY_COLLECT_PROJECT_CODE", 1);
-                initView();
+                initPresenter();
             }
         }
     }

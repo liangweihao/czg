@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -279,8 +280,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
             downloadBinder.startDownload(Environment.getExternalStorageDirectory() + "/Library/",
                     name +".dm",
-                    UrlAll.DOWN_LOAD_IMAGE+url+".dm",
+                    UrlAll.DOWN_LOAD_IMAGE+url+".dm?="+ SystemClock.currentThreadTimeMillis(),
                     url,position);
+
         }else if (eventCode == EventBusCode.ADD_COLLECT){
             //添加收藏
             int type = bundle.getInt("type");

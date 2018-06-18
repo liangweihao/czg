@@ -126,6 +126,7 @@ public class FindRecyclerAdapter extends RecyclerView.Adapter<FindRecyclerAdapte
             public void onClick(View v) {
                 Intent intent = new Intent(context, OtherFindActivity.class);
                 intent.putExtra("userCode" , userInfo.getUserCode()+"") ;
+                intent.putExtra("nameNick" , userInfo.getNameNick()) ;
                 context.startActivity(intent);
             }
         });

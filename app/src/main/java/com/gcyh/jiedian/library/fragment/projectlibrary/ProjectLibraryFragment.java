@@ -71,6 +71,12 @@ public class ProjectLibraryFragment extends BaseFragment {
 
         token_id = SPUtil.getString(getActivity(), "token_id", "");
 
+        if (NetWorkUtils.isNetworkEnable(getActivity())) {
+            projectLibraryHttp();
+            Log.i("====", "initPresenter: "+token_id);
+        } else {
+            llProjectlibraryNull.setVisibility(View.VISIBLE);
+        }
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         //设置布局管理器
@@ -178,7 +184,8 @@ public class ProjectLibraryFragment extends BaseFragment {
     public void onEventMainThread(int eventCode, Bundle bundle) {
         //切换布局类型
         if (eventCode == EventBusCode.CODE_LIBRARY_PROJECT) {
-            int type = SPUtil.getInt(getActivity(), "LIBRARY_PROJECT_CODE", 1);
+            int type = SPUtil.getInt(getActivity(), "LIBRARY_PROJECT_CODE", 2);
+            Log.i("=====", "onEventMainThread: ==PROJECT===="+type);
             if (type == 1) {
                 SPUtil.setInt(getActivity(), "LIBRARY_PROJECT_CODE", 2);
                 initView();
@@ -210,15 +217,4 @@ public class ProjectLibraryFragment extends BaseFragment {
         }
     }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-       if (isVisibleToUser){
-           if (NetWorkUtils.isNetworkEnable(getActivity())) {
-               projectLibraryHttp();
-               Log.i("====", "initPresenter: "+token_id);
-           } else {
-               llProjectlibraryNull.setVisibility(View.VISIBLE);
-           }
-       }
-    }
 }

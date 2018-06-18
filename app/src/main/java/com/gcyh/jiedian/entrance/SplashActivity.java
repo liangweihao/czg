@@ -108,7 +108,7 @@ public class SplashActivity extends AppCompatActivity {
             case R.id.tv_splash_enter:
                 //跳转到---登录页面
                 SPUtil.setBoolean(this, "isFirst", false);
-                Intent intent = new Intent(this, LoginActivity.class);
+                Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finish();
 

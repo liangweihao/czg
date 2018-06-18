@@ -2,15 +2,15 @@ apply plugin: 'com.android.application'
 
 android {
 
-    /*上线的时候删除*/
-    signingConfigs {
-        debug {
-            keyAlias 'key0'
-            storeFile file('E:/ProjectDemo/EasyAssembleApk/EasyAssemble.jks')
-            keyPassword '123456'
-            storePassword '123456'
-        }
-    }
+//    /*上线的时候删除*/
+//    signingConfigs {
+//        debug {
+//            keyAlias 'key0'
+//            storeFile file('E:/ProjectDemo/EasyAssembleApk/EasyAssemble.jks')
+//            keyPassword '123456'
+//            storePassword '123456'
+//        }
+//    }
 
     compileSdkVersion 26
     buildToolsVersion '26.0.0'
@@ -60,10 +60,11 @@ dependencies {
     compile 'com.yanzhenjie:recyclerview-swipe:1.1.4'
     compile 'com.jakewharton:butterknife:8.5.1'
     compile 'com.github.open-android:PhotoImageView:0.1.0'
-    compile 'liji.library.dev:citypickerview:3.1.8'
+    compile 'liji.library.dev:citypickerview:0.7.0'
     compile 'com.github.Othershe:DUtil:1.1.1'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.14'
     compile 'com.github.pinguo-zhouwei:CustomPopwindow:2.1.1'  // Popwindow
+    compile 'com.aliyun.dpa:oss-android-sdk:2.8.3'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

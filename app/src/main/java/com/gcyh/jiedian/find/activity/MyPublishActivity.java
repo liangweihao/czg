@@ -5,12 +5,24 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.sdk.android.oss.ClientException;
+import com.alibaba.sdk.android.oss.OSS;
+import com.alibaba.sdk.android.oss.OSSClient;
+import com.alibaba.sdk.android.oss.ServiceException;
+import com.alibaba.sdk.android.oss.callback.OSSCompletedCallback;
+import com.alibaba.sdk.android.oss.callback.OSSProgressCallback;
+import com.alibaba.sdk.android.oss.common.auth.OSSCustomSignerCredentialProvider;
+import com.alibaba.sdk.android.oss.common.utils.OSSUtils;
+import com.alibaba.sdk.android.oss.internal.OSSAsyncTask;
+import com.alibaba.sdk.android.oss.model.PutObjectRequest;
+import com.alibaba.sdk.android.oss.model.PutObjectResult;
 import com.gcyh.jiedian.R;
 import com.gcyh.jiedian.adapter.PublicPhotoAdapter;
 import com.gcyh.jiedian.base.BaseActivity;
@@ -23,6 +35,7 @@ import com.gcyh.jiedian.util.SpaceItemDecoration;
 import com.gcyh.jiedian.util.ToastUtil;
 import com.yanzhenjie.album.Album;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,8 +64,8 @@ public class MyPublishActivity extends BaseActivity implements PublicPhotoAdapte
     private static final int ACTIVITY_REQUEST_SELECT_PHOTO = 1024;
     private List<String> piclist = new ArrayList<>();  //图片集合
     private String token_id;
-    private String imageList = "" ;
-    private String phone ;
+    private String imageList = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState, String tag) {
@@ -62,7 +75,7 @@ public class MyPublishActivity extends BaseActivity implements PublicPhotoAdapte
         txtToolbarRight.setVisibility(View.VISIBLE);
         txtToolbarRight.setText("发布");
         token_id = SPUtil.getString(this, "token_id", "");
-        phone = SPUtil.getString(this, "phone", "");
+
     }
 
     @Override
@@ -117,11 +130,12 @@ public class MyPublishActivity extends BaseActivity implements PublicPhotoAdapte
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_SELECT_PHOTO) {
             // 拿到用户选择的图片路径List：
+            piclist.clear();
             if (data != null) {
                 List<String> pathList = Album.parseResult(data);
                 piclist.addAll(pathList);
                 adapter.notifyDataSetChanged();
-                Log.i(TAG, "onActivityResult: ===="+pathList.get(0));
+
             }
         }
     }
@@ -136,32 +150,32 @@ public class MyPublishActivity extends BaseActivity implements PublicPhotoAdapte
                 //发布
                 String content = etMyPublishContent.getText().toString(); //内容
                 long time = System.currentTimeMillis();  // 时间戳
-                String phone = this.phone.substring(7, this.phone.length());  //电话后四位
-                if (piclist != null){
-                    for (int i=0 ; i<piclist.size() ;i++){
-                        if (i == piclist.size() - 1){
-                            imageList += phone+time+(i+1) ;
-                        }else {
-                            imageList += phone+time+(i+1)+"," ;
+                String phone = SPUtil.getString(this, "phone", "");
+                String phoneNumber = phone.substring(7, phone.length());  //电话后四位
+                if (piclist != null) {
+                    for (int i = 0; i < piclist.size(); i++) {
+                        if (i == piclist.size() - 1) {
+                            imageList += phoneNumber + time + (i + 1);
+                        } else {
+                            imageList += phoneNumber + time + (i + 1) + ",";
                         }
                     }
                 }
+                //把图片上传到阿里云服务器
+                ossUpload(piclist);
 
-                //图片上传阿里云
-
-
-                if (NetWorkUtils.isNetworkEnable(this)){
-                    setPublicHttp(imageList , content) ;
+                if (NetWorkUtils.isNetworkEnable(this)) {
+                    setPublicHttp(imageList, content);
                 }
-                Log.i(TAG, "onViewClicked: ===="+imageList + "====="+content);
+                Log.i(TAG, "onViewClicked: ====" + imageList + "=====" + content);
                 break;
         }
     }
 
     //发帖--接口
-    private void setPublicHttp(String images , String content){
+    private void setPublicHttp(String images, String content) {
         ApiService service = RetrofitUtil.getInstance().create(ApiService.class);
-        service.postmessage(token_id , images , content)
+        service.postmessage(token_id, images, content)
                 .subscribeOn(Schedulers.io())         //请求完成后在io线程中执行
                 .observeOn(AndroidSchedulers.mainThread())//最后在主线程中执行
                 .subscribe(new Subscriber<PostMessage>() {
@@ -187,6 +201,95 @@ public class MyPublishActivity extends BaseActivity implements PublicPhotoAdapte
 
                     }
                 });
+    }
+
+    //把图片上传到阿里云
+    /**
+     * 阿里云OSS上传（默认是异步多文件上传）
+     *
+     * @param urls
+     */
+    private int number = 1;
+
+    public void ossUpload(final List<String> urls) {
+
+        if (urls.size() <= 0) {
+            // 文件全部上传完毕，这里编写上传结束的逻辑，如果要在主线程操作，最好用Handler或runOnUiThead做对应逻辑
+            return;// 这个return必须有，否则下面报越界异常，原因自己思考下哈
+        }
+        final String url = urls.get(0);
+        if (TextUtils.isEmpty(url)) {
+            urls.remove(0);
+            // url为空就没必要上传了，这里做的是跳过它继续上传的逻辑。
+            ossUpload(urls);
+            return;
+        }
+
+        File file = new File(url);
+        if (null == file || !file.exists()) {
+            urls.remove(0);
+            // 文件为空或不存在就没必要上传了，这里做的是跳过它继续上传的逻辑。
+            ossUpload(urls);
+            return;
+        }
+
+        // 文件标识符objectKey
+        final String objectKey = "image/" + System.currentTimeMillis() + number;
+        // 下面3个参数依次为bucket名，ObjectKey名，上传文件路径
+        PutObjectRequest put = new PutObjectRequest("gcyhnodelibrary", objectKey, url);
+
+        // 设置进度回调
+        put.setProgressCallback(new OSSProgressCallback<PutObjectRequest>() {
+            @Override
+            public void onProgress(PutObjectRequest request, long currentSize, long totalSize) {
+                // 进度逻辑
+            }
+        });
+        String endpoint = "http://oss-cn-beijing.aliyuncs.com";
+        OSSCustomSignerCredentialProvider credentialProvider = new OSSCustomSignerCredentialProvider() {
+            @Override
+            public String signContent(String content) {
+                String sign = OSSUtils.sign("LTAIVAo11aVfhBvf", "P0tWvWpQCcBzxH6b1TIvbvrx36cuKg", content);
+                return sign;
+            }
+        };
+        OSS oss = new OSSClient(this, endpoint, credentialProvider);
+        // 异步上传
+        OSSAsyncTask task = oss.asyncPutObject(put, new OSSCompletedCallback<PutObjectRequest, PutObjectResult>() {
+            @Override
+            public void onSuccess(PutObjectRequest request, PutObjectResult result) { // 上传成功
+                urls.remove(0);
+                ++number;
+                if (urls.size() > 0) {
+                    ossUpload(urls);// 递归同步效果
+                } else {
+                    //全部上传成功
+                    Log.i("====", "onSuccess: ===上传成功==");
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(PutObjectRequest request, ClientException clientExcepion,
+                                  ServiceException serviceException) { // 上传失败
+
+                // 请求异常
+                if (clientExcepion != null) {
+                    // 本地异常如网络异常等
+                    clientExcepion.printStackTrace();
+                }
+                if (serviceException != null) {
+                    // 服务异常
+                    Log.e("ErrorCode", serviceException.getErrorCode());
+                    Log.e("RequestId", serviceException.getRequestId());
+                    Log.e("HostId", serviceException.getHostId());
+                    Log.e("RawMessage", serviceException.getRawMessage());
+                }
+            }
+        });
+        // task.cancel(); // 可以取消任务
+        // task.waitUntilFinished(); // 可以等待直到任务完成
     }
 
 }

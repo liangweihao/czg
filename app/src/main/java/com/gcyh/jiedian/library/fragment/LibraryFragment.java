@@ -114,7 +114,7 @@ public class LibraryFragment extends BaseFragment {
         TabLayoutFragmentAdapter adatper = new TabLayoutFragmentAdapter(getChildFragmentManager(), fragments, titles);
 
         libraryViewPager.setAdapter(adatper);
-        libraryViewPager.setOffscreenPageLimit(0);
+        libraryViewPager.setOffscreenPageLimit(3);
         //将TabLayout和ViewPager关联起来。
         libraryXxTablayout.setupWithViewPager(libraryViewPager);
         libraryViewPager.setCurrentItem(0);
